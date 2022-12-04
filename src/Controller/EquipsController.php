@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class EquipsController
+class EquipsController extends AbstractController
 {
     private $equips = array(
         array("codi" => 1, "nom" => "Equip Roig",
@@ -40,9 +41,13 @@ class EquipsController
             $resposta .= "<ul><li>" . $resultat["nom"] . "</li>" .
                 "<li>" . $resultat["curs"] . "</li>" .
                 "<li>" . $llistaMembres . "</li></ul>";
-            return new Response("<html><body>$resposta</body></html>");
+            return $this->render("equips.html.twig", array(
+                "equip" => $resultat
+            ));
         } else {
-            return new Response("No s’ha trobat l’equip: " . $codi);
+            return $this->render("equips.html.twig", array(
+                "equip" => NULL
+            ));
         }
     }
 

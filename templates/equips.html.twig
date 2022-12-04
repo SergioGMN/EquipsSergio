@@ -1,0 +1,20 @@
+<html>
+<body>
+<h1>Fitxa de contacte</h1>
+{% if equip %}
+<ul>
+    <li><strong>{{ equip.nom }}</strong></li>
+    <li><strong>Curs</strong>: {{ equip.curs }}</li>
+    <li><strong>Membres</strong>:
+        <ul>
+            {% for membre in equip.membres %}
+                <li>{{ membre }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+</ul>
+{% else %}
+    <p>Contacte no trobat</p>
+{% endif %}
+</body>
+</html>
