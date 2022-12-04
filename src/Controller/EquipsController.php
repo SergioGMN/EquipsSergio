@@ -9,18 +9,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class EquipsController extends AbstractController
 {
     private $equips = array(
-        array("codi" => 1, "nom" => "Equip Roig",
-            "curs" => "22/23", "membres" => array("Elena", "Vicent", "Joan", "Maria")),
-        array("codi" => 2, "nom" => "Os Tres Porquinhos",
-            "curs" => "22/23", "membres" => array("Sergio", "Marcos", "David")),
-        array("codi" => 3, "nom" => "Equip Blau",
-            "curs" => "22/23", "membres" => array("Xavi", "Andrea", "Pau", "Jose")),
-        array("codi" => 4, "nom" => "Equip Verd",
-            "curs" => "22/23", "membres" => array("Pedro Sánchez", "Carla", "Antoni", "Raul")),
+        array("codi" => 1, "nom" => "Os Tres Porquinhos", "curs" => "22/23", "membres" => array("Sergio", "Marcos", "David")),
+        array("codi" => 2, "nom" => "Equip Roig", "curs" => "22/23", "membres" => array("Laura", "Jordi", "Sara", "Marc")),
+        array("codi" => 3, "nom" => "Equip Verd", "curs" => "22/23", "membres" => array("Anna", "Pere", "Núria", "Albert")),
+        array("codi" => 4, "nom" => "Equip Gris", "curs" => "22/23", "membres" => array("Marcos", "Irene", "Marta", "Rocío")),
     );
 
     /**
-     * @Route("/equip/{codi}", name="dades_equip")
+     * @Route("/equip/{codi}", name="dades_equips")
      */
     public function equip($codi = 1)
     {

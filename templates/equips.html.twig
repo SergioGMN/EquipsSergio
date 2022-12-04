@@ -1,20 +1,34 @@
-<html>
-<body>
-<h1>Fitxa de contacte</h1>
-{% if equip %}
-<ul>
-    <li><strong>{{ equip.nom }}</strong></li>
-    <li><strong>Curs</strong>: {{ equip.curs }}</li>
-    <li><strong>Membres</strong>:
-        <ul>
-            {% for membre in equip.membres %}
-                <li>{{ membre }}</li>
-            {% endfor %}
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/estilsEquips.css") }}">
+{% endblock %}
+{% block title %}Equips{% endblock %}
+{% block body %}
+    <h1 id="titolEquip">Fitxa de contacte</h1>
+    {% if equip %}
+        <p class="paragrafEquip">
+            <img src="{{ asset("imgs/ok.jpg") }}" alt="Ok" class="imatgeEquip"><br>
+            Projecte 2n DAW Symfony
+        </p>
+        <ul class="dadesEquip">
+            <li><strong>{{ equip.nom }}</strong></li>
+            <li><strong>Curs</strong>: {{ equip.curs }}</li>
+            <li><strong>Membres</strong>:
+                <ul class="llistaInterna">
+                    {% for membre in equip.membres %}
+                        <li>{{ membre }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
         </ul>
-    </li>
-</ul>
-{% else %}
-    <p>Contacte no trobat</p>
-{% endif %}
-</body>
-</html>
+    {% else %}
+        <p class="paragrafEquip">
+            <img src="{{ asset("imgs/no_ok.jpg") }}" alt="No ok" class="imatgeEquip"><br>
+            Equip no trobat.
+        </p>
+    {% endif %}
+    <p class="paragrafEquip">
+        <a class="enmarcat" href="{{ path("inici") }}"><img class="icona" src="{{ asset("imgs/enrere.png") }}" alt="enrere"> Torna a l'inici</a>
+    </p>
+{% endblock %}
