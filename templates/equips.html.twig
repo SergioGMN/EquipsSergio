@@ -8,7 +8,7 @@
     <h1 id="titolEquip">Fitxa de contacte</h1>
     {% if equip %}
         <p class="paragrafEquip">
-            <img src="{{ asset("imgs/ok.jpg") }}" alt="Ok" class="imatgeEquip"><br>
+            <img src="{{ asset("imgs/" ~ equip.img) }}" alt="{{ equip.nom }}" class="imatgeEquip"><br>
             Projecte 2n DAW Symfony
         </p>
         <ul class="dadesEquip">
