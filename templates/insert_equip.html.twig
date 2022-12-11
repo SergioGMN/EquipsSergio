@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/estilsEquips.css") }}">
+{% endblock %}
+{% block title %}Equips{% endblock %}
+{% block body %}
+    {% if success %}
+        <h1 id="titolEquip">Equip inserit correctament</h1>
+        <p class="paragrafEquip">
+            <img src="{{ asset('imgs/ok.jpg') }}" alt="equip image">
+        </p>
+        <ul class="dadesEquip">
+            <li><b>Id:</b> {{ equip.id }}</li>
+            <li><b>Nom:</b> {{ equip.nom }}</li>
+            <li><b>Cicle:</b> {{ equip.cicle }}</li>
+            <li><b>Curs:</b> {{ equip.curs }}</li>
+            <li><b>Nota:</b> {{ equip.nota }}</li>
+            <li><b>Imatge:</b>
+                <img class="imatgeEquip" src="{{ asset('imgs/' ~ equip.imatge) }}" alt="equip image">
+            </li>
+        </ul>
+        <p class="paragrafEquip"><a href="{{ path('dades_equips', {'codi': equip.id}) }}">Veure detalls de l'equip</a></p>
+        <p class="paragrafEquip"><a href="{{ path('inici') }}">Torna al inici</a></p>
+    {% else %}
+        <h1 id="titolEquip">Error inserint equip</h1>
+        <p class="paragrafEquip">
+            <img src="{{ asset('imgs/no_ok.jpg') }}" alt="equip image">
+            <span class="blocError">
+                {{ error }}
+            </span>
+        </p>
+        <p class="paragrafEquip"><a href="{{ path('inici') }}">Torna al inici</a></p>
+    {% endif %}
+{% endblock %}

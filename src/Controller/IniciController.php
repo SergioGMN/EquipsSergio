@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Equip;
 use App\Service\ServeiDadesEquip;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,10 +14,10 @@ class IniciController extends AbstractController
     private $logger;
     private $dades;
 
-    public function __construct($logger, ServeiDadesEquip $dadesEquips)
+    public function __construct($logger, $dadesEquips, ManagerRegistry $doctrine)
     {
         $this->logger = $logger;
-        $this->dades = $dadesEquips->get();
+        $this->dades = $doctrine->getRepository(Equip::class);
     }
 
     /**
@@ -27,7 +29,7 @@ class IniciController extends AbstractController
         $this->logger->info("Accés el " . $data_hora->format("d/m/y H:i:s"));
 
         return $this->render("inici.html.twig", array(
-            "equips" => $this->dades
+            "equips" => $this->dades->findAll()
         ));
     }
 }

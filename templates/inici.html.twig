@@ -15,7 +15,7 @@
     <div class="blocText">
         <ul class="llistaInterna">
             {% for equip in equips %}
-                <li><a href="{{ path('dades_equips', {'codi': equip.codi}) }}">{{ equip.nom }}</a></li>
+                <li><b><a class="urlEquip" href="{{ path('dades_equips', {'codi': equip.id}) }}">{{ equip.nom }}</a></b></li>
             {% endfor %}
         </ul>
     </div>

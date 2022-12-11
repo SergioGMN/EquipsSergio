@@ -8,19 +8,23 @@
     <h1 id="titolEquip">Fitxa de contacte</h1>
     {% if equip %}
         <p class="paragrafEquip">
-            <img src="{{ asset("imgs/" ~ equip.img) }}" alt="{{ equip.nom }}" class="imatgeEquip"><br>
+            <img src="{{ asset("imgs/" ~ equip.imatge) }}" alt="{{ equip.nom }}" class="imatgeEquip"><br>
             Projecte 2n DAW Symfony
         </p>
         <ul class="dadesEquip">
-            <li><strong>{{ equip.nom }}</strong></li>
+            <li><strong class="titleEquip">{{ equip.nom }}</strong></li>
+            <li><strong>Codi</strong>: {{ equip.id }}</li>
             <li><strong>Curs</strong>: {{ equip.curs }}</li>
-            <li><strong>Membres</strong>:
-                <ul class="llistaInterna">
-                    {% for membre in equip.membres %}
-                        <li>{{ membre }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
+            <li><strong>Cicle</strong>: {{ equip.cicle }}</li>
+            <li><strong>Nota</strong>: {{ equip.nota }}</li>
+{#            <li><strong>Membres</strong>:#}
+{#                <ul class="llistaInterna">#}
+{#                    {% for membre in equip.membres %}#}
+{#                        <li>{{ membre }}</li>#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{#            </li>#}
+
         </ul>
     {% else %}
         <p class="paragrafEquip">
