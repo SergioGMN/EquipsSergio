@@ -110,7 +110,7 @@ class EquipsController extends AbstractController
     }
 
     /**
-     * @Route("/equip/nota/{nota}", name="filtrar_notes", requirements={"nota"="^(1[0]|[0-9])(\.[0-9]{1,2})?$"})
+     * @Route("/equip/nota/{nota}", name="filtrar_notes", requirements={"nota"="^1[0]$|^[0-9](\.[0-9]{1,2})?$"})
      */
     public function filtrarNotes($nota, ManagerRegistry $doctrine)
     {
